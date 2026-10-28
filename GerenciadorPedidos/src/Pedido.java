@@ -1,4 +1,4 @@
-public abstract class Pedido {
+public abstract class Pedido implements Processavel{
 
     private String id;
     private String nomeCliente;
@@ -21,17 +21,19 @@ public abstract class Pedido {
         this.categoria = categoria;
     }
 
-    public void processarPedido(Pedido pedido) throws PedidoInvalidoException {
+    public void processarPedido() throws PedidoInvalidoException {
 
-        if (pedido.getStatus() == StatusPedido.CANCELADO) {
+        if (getStatus() == StatusPedido.CANCELADO) {
 
             throw new PedidoInvalidoException("Pedido cancelado não pode ser processado");
-        } else if (pedido.getStatus() == StatusPedido.ENTREGUE) {
+        } else if (getStatus() == StatusPedido.ENTREGUE) {
 
             throw new PedidoInvalidoException("Pedido entregue não pode mudar de status");
         }
 
-        pedido.setStatus(StatusPedido.PROCESSANDO);
+        setStatus(StatusPedido.PROCESSANDO);
+
+        System.out.println("Pedido processado");
 
     }
 
