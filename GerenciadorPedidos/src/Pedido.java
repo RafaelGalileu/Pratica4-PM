@@ -1,4 +1,4 @@
-public abstract class Pedido implements Processavel{
+public abstract class Pedido implements Processavel {
 
     private String id;
     private String nomeCliente;
@@ -75,6 +75,12 @@ public abstract class Pedido implements Processavel{
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    @Override
+    public String toString() {
+        return "Pedido [id=" + id + ", nomeCliente=" + nomeCliente + ", valor=" + valor + ", status=" + status
+                + ", categoria=" + categoria + "]";
     }
 
 }

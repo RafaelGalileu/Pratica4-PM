@@ -1,4 +1,4 @@
-public class PedidoRoupa extends Pedido{
+public class PedidoRoupa extends Pedido implements Entregavel {
 
     public PedidoRoupa(String id, String nomeCliente, double valor, StatusPedido status, Categoria categoria)
             throws ValorInvalidoException {
@@ -7,7 +7,7 @@ public class PedidoRoupa extends Pedido{
 
 
     public double calcularFrete() {
-        double frete = 20 + (getValor() * 0.1);
+        double frete = 10 + (getValor() * 0.05);
         return frete;
     }
 
